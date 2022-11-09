@@ -14,25 +14,25 @@ The method build_stats() can be at most linear O(n).
 
 Install [Python3+](https://www.python.org/) before run.
 
-'''sh
+```sh
 git clone https://github.com/omorok/stats-challenge.git
 cd stats-challenge
 python main.py
-'''
+```
 or
-'''sh
+```sh
 python3 main.py
-'''
+```
 
 ## For testing purposes
 Install Pytest
 
-'''sh
+```sh
 pip install pytest==7.1.2
-'''
+```
 run test
 
-'''sh
+```sh
 cd tests
 pytest
-'''
+```
