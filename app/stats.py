@@ -7,7 +7,7 @@ class Stats:
     - length: count of elements in the collection of the numbers.
     '''
 
-    error_msg = 'Inputn value error: value out of range.'
+    error_msg = 'Input value error: value out of range.'
 
     def __init__(self, numbers_count, lower, length):
         self.numbers_count = numbers_count
@@ -36,7 +36,7 @@ class Stats:
         '''
         if self.validate_number(min) or self.validate_number(max):
             return self.error_msg
-        return self.less(max+1) - self.less(min-1)
+        return self.less(max+1) - self.less(min)
     
     def validate_number(self, number):
         return(0 > number or number > (len(self.numbers_count)-1))

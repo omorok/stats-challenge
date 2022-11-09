@@ -12,5 +12,5 @@ capture.add(6)
 stats=capture.build_stats()
 
 print(stats.less(4))
-print(stats.between(3, 6))
+print(stats.between(4, 6))
 print(stats.greater(4))
