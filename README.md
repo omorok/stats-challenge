@@ -12,20 +12,20 @@ The method build_stats() can be at most linear O(n).
 
 ## For usage example
 
-Install [Python3+](https://www.python.org/) before run.
+Install [Python3+](https://www.python.org/) before run and get the source from:
+
 
 ```sh
 git clone https://github.com/omorok/stats-challenge.git
-cd stats-challenge
-python main.py
 ```
-or
+
+to run the challenge run the code below
 ```sh
 python3 main.py
 ```
 
 ## For testing purposes
-Install Pytest
+Install Pytest before any testing run. If you need to add some test case, be free to edit the **test_cases** data structure within **/tests/test_data_captue.py** file.
 
 ```sh
 pip install pytest==7.1.2
