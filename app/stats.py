@@ -10,9 +10,19 @@ class Stats:
         print(length)
     
     def less(self, number):
-        '''
-        "less" method help: returns the total of values lower than a number provided. O(1)
-        '''
+        
         if self.validate_number(number):
             return self.error_msg
         return self.lower[number]
+    
+    def greater(self, number):
+        
+        if self.validate_number(number):
+            return self.error_msg
+        return self.length - (self.lower[number] + self.numbers_count[number])
+    
+    def between(self, min, max):
+        
+        if self.validate_number(min) or self.validate_number(max):
+            return self.error_msg
+        return self.less(max+1) - self.less(min-1)
