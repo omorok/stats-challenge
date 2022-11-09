@@ -1,3 +1,4 @@
+from app.stats import Stats
 class DataCapture:
 
 
