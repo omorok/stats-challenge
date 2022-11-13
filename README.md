@@ -93,9 +93,9 @@ cd tests
 pytest
 ```
 
-# NOTE:
+## NOTE:
 I did every feedback change provided but I need to say that I interpreted the following feedback change requirement:
 
 *"Los test están muy acoplados, sería bueno separarlos por clases..."*
 
-in the way I need to decouple the data test inputs for rehuse among the clases tested and make a test for each class involved, but I feel that the principle of private methods tested through piublic ones should be priority and my previous implementation reflected that. That beign said, thanks again for the feedback.
+in the way I need to decouple the data test inputs for rehuse among the clases tested and make a test for each class involved, but I feel that the principle of private methods tested through public ones it's okey in this scenario and my previous implementation reflected that. That beign said, thanks again for the feedback.
