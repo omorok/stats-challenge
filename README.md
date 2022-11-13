@@ -53,9 +53,19 @@ python3 main.py
 ```
 
 ## For testing purposes
-If you need to add some test case, be free to edit the **test_cases** data structure within **/tests/test_data_captue.py** file.
+If you need to add some test cases, be free to edit the file **data_test_cases.py** within **/tests** folder.
+The file estructure shuld look like this:
+```sh
+test_cases = [
+    ([3, 9, 3, 4, 6], {'less(4)': 2, 'between(3,6)': 4, 'greater(4)': 2}),
+    ([3, 9, 3, 4, 6, 5, 6, 2], {'less(4)': 3, 'between(4,6)': 4, 'greater(4)': 4}),
+    ([3, 9, 3, 4, 6, 5, 6, 2], {'greater(-1)': 'Input value error: value out of range or different integer type.'}),
+    ([3, 9, 3, 4, 6, 5, 6, 2], {'greater(1001)': 'Input value error: value out of range or different integer type.'})
+    ]
+```
+The firt parámeter should be the numbers you want to add to the test cases, and the second argument should be a dictionary where the keys are the are method names, and the values are the corresponding values expected by each test case.
 
-Install Pytest before any testing run. 
+### Install Pytest before any testing run. 
 ```sh
 pip install pytest==7.1.2
 ```
@@ -65,3 +75,10 @@ to run test execute the lines below
 cd tests
 pytest
 ```
+
+# NOTE:
+I did every feedback change provided but I need to say that I interpreted the following feedback change requirement:
+
+*"Los test están muy acoplados, sería bueno separarrlos por clases..."*
+
+in the way I need to decouple the data test inputs for rehuse among the clases tested and make a test for each class involved, but I feel that the principle of private methods tested through piublic ones should be priority and my previous implementation reflected that. That beign said, thanks again for the feedback.
