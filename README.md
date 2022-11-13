@@ -53,8 +53,10 @@ python3 main.py
 ```
 
 ## For testing purposes
-If you need to add some test cases, be free to edit the file **data_test_cases.py** within **/tests** folder.
+If you need to add some test cases, be free to edit the files *data_capture_test_cases.py* and *data_tests_test_cases.py* within **/tests** folder.
 The file estructure shuld look like this:
+
+**data_capture_test_cases.py**
 ```sh
 test_cases = [
     ([3, 9, 3, 4, 6], {'less(4)': 2, 'between(3,6)': 4, 'greater(4)': 2}),
@@ -63,7 +65,22 @@ test_cases = [
     ([3, 9, 3, 4, 6, 5, 6, 2], {'greater(1001)': 'Input value error: value out of range or different integer type.'})
     ]
 ```
-The firt parámeter should be the numbers you want to add to the test cases, and the second argument should be a dictionary where the keys are the are method names, and the values are the corresponding values expected by each test case.
+The first parámeter should be the numbers you want to add to the test cases (all of them at once), and the second argument should be a dictionary where the keys are the are method names, and the values expected by each test case.
+
+and
+**data_tests_test_cases.py**
+```sh
+test_cases = [
+    (3, None),
+    (9, None),
+    (3, None),
+    (4, None),
+    (6, None),
+    (4.5, 'Input value error: value out of range or different integer type.'),
+    (-1, 'Input value error: value out of range or different integer type.')
+    ]
+```
+The first parámeter should be the numbers you want to add to the test cases, and the second argument should be the expected value for each test case.
 
 ### Install Pytest before any testing run. 
 ```sh
@@ -79,6 +96,6 @@ pytest
 # NOTE:
 I did every feedback change provided but I need to say that I interpreted the following feedback change requirement:
 
-*"Los test están muy acoplados, sería bueno separarrlos por clases..."*
+*"Los test están muy acoplados, sería bueno separarlos por clases..."*
 
 in the way I need to decouple the data test inputs for rehuse among the clases tested and make a test for each class involved, but I feel that the principle of private methods tested through piublic ones should be priority and my previous implementation reflected that. That beign said, thanks again for the feedback.
