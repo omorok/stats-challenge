@@ -27,6 +27,7 @@ class DataCapture:
             return self.error_msg
         self.numbers.append(number)
         self.numbers_count[number] += 1
+        return None
     
     def build_stats(self) -> Stats:
         '''

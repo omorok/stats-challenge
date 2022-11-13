@@ -1,7 +1,7 @@
 import pytest
 
-from tests.data_test_cases import test_cases
-#from app.stats import Stats
+from tests.data_capture_test_cases import test_cases
+
 from app.data_capture import DataCapture
 
 @pytest.mark.parametrize('numbers,methods', test_cases)
