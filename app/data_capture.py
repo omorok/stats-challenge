@@ -42,4 +42,4 @@ class DataCapture:
         return Stats(self.numbers_count, lowest, len(self.numbers))
     
     def validate_number(self, number:int) -> bool:
-        return (0 > number or number > (len(self.numbers_count)-1) or type(number) != int)
+        return 0 > number or number > (len(self.numbers_count)-1) or type(number) != int

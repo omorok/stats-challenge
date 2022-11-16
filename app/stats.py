@@ -13,7 +13,7 @@ class Stats:
         self.numbers_count = numbers_count
         self.lower = lower
         self.length = length
-            
+                  
     def less(self, number:int) -> int:
         '''
         "less" method help: returns the total of values lower than a number provided. O(1)
@@ -34,9 +34,16 @@ class Stats:
         '''
         "between" method help: returns total of values between min and max threshold. O(1)
         '''
-        if self.validate_number(min(num1, num2)) or self.validate_number(max(num1, num2)):
+        if num1 > num2:
+            max_value = num1
+            min_value = num2
+        else:
+            max_value = num2
+            min_value = num1 
+
+        if self.validate_number(min_value) or self.validate_number(max_value):
             return self.error_msg
-        return self.less(max(num1, num2)+1) - self.less(min(num1, num2))
+        return self.less(max_value + 1) - self.less(min_value)
     
     def validate_number(self, number: int) -> bool:
-        return (0 > number or number > (len(self.numbers_count)-1) or type(number) != int)
+        return 0 > number or number > (len(self.numbers_count)-1) or type(number) != int

@@ -1,5 +1,5 @@
 import pytest
-from typing import List, Dict
+from typing import List, Dict, Callable
 from app.data_capture import DataCapture
 from app.stats import Stats
 
@@ -17,21 +17,21 @@ def build_stats():
 
 
 @pytest.mark.parametrize('numbers,methods', less_cases)
-def test_less(numbers: List[int], methods: Dict[str,int], build_stats: Stats):    
+def test_less(numbers: List[int], methods: Dict[str,int], build_stats: Callable[..., Stats]):    
     stats = build_stats(numbers)
     for method, expected in methods.items():
         if 'less'in method:
             assert eval('stats.' + method) == expected
 
 @pytest.mark.parametrize('numbers,methods', greater_cases)
-def test_greater(numbers: List[int], methods: Dict[str,int], build_stats: Stats):
+def test_greater(numbers: List[int], methods: Dict[str,int], build_stats: Callable[..., Stats]):
     stats = build_stats(numbers)
     for method, expected in methods.items():
         if 'greater'in method:
             assert eval('stats.' + method) == expected
 
 @pytest.mark.parametrize('numbers,methods', between_cases)
-def test_between(numbers: List[int], methods: Dict[str,int], build_stats: Stats):
+def test_between(numbers: List[int], methods: Dict[str,int], build_stats: Callable[..., Stats]):
     stats = build_stats(numbers)
     for method, expected in methods.items():
         if 'between'in method:
