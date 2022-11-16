@@ -59,8 +59,6 @@ The file estructure shuld look like this:
 ```sh
 test_numbers = [3, 9, 3, 4, 6, 5, 6, 2]
 
-test_numbers = [3, 9, 3, 4, 6, 5, 6, 2]
-
 add_cases = [
     (test_numbers, {
         'add(3)': None,
