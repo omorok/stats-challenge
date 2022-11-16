@@ -59,14 +59,18 @@ The file estructure shuld look like this:
 ```sh
 test_numbers = [3, 9, 3, 4, 6, 5, 6, 2]
 
+test_numbers = [3, 9, 3, 4, 6, 5, 6, 2]
+
 add_cases = [
-    (3, None),
-    (9, None),
-    (3, None),
-    (4, None),
-    (6, None),
-    (4.5, 'Input value error: value out of range or different integer type.'),
-    (-1, 'Input value error: value out of range or different integer type.')
+    (test_numbers, {
+        'add(3)': None,
+        'add(9)': None,
+        'add(3)': None,
+        'add(4)': None,
+        'add(6)': None,
+        'add(4.5)': 'Input value error: value out of range or different integer type.',
+        'add(-1)': 'Input value error: value out of range or different integer type.'
+        }),
     ]
 
 build_test_cases = [
