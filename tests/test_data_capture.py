@@ -1,13 +1,13 @@
 import pytest
 
 from tests.data_capture_test_cases import add_cases, build_test_cases
+
 from app.data_capture import DataCapture
 
-@pytest.mark.parametrize('numbers, expected', add_cases)
-def test_add(numbers: int, expected: int):
+@pytest.mark.parametrize('number, expected', add_cases)
+def test_add(number: int, expected: int):
     capture = DataCapture()
-    for n in numbers:
-        assert capture.add(n) == expected
+    assert capture.add(number) == expected
 
 @pytest.mark.parametrize('numbers,methods', build_test_cases)
 def test_build_stats(numbers, methods):
