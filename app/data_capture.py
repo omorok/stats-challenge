@@ -17,7 +17,7 @@ class DataCapture:
         self.max_value = 1000
         self.numbers_count = [0] * self.max_value
     
-    def add(self, number) -> None:        
+    def add(self, number:int) -> None:        
         '''
         "add" method help: store new values incrementing the count of each one in the respective position in numbers_count.
         
@@ -41,5 +41,5 @@ class DataCapture:
             lowest[i] = lowest[i-1] + self.numbers_count[i-1]
         return Stats(self.numbers_count, lowest, len(self.numbers))
     
-    def validate_number(self, number) -> bool:
+    def validate_number(self, number:int) -> bool:
         return (0 > number or number > (len(self.numbers_count)-1) or type(number) != int)
