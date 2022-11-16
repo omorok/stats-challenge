@@ -57,19 +57,9 @@ The file estructure shuld look like this:
 
 **data_capture_test_cases.py**
 ```sh
-test_cases = [
-    ([3, 9, 3, 4, 6], {'less(4)': 2, 'between(3,6)': 4, 'greater(4)': 2}),
-    ([3, 9, 3, 4, 6, 5, 6, 2], {'less(4)': 3, 'between(4,6)': 4, 'greater(4)': 4}),
-    ([3, 9, 3, 4, 6, 5, 6, 2], {'greater(-1)': 'Input value error: value out of range or different integer type.'}),
-    ([3, 9, 3, 4, 6, 5, 6, 2], {'greater(1001)': 'Input value error: value out of range or different integer type.'})
-    ]
-```
-The first parámeter should be the numbers you want to add to the test cases (all of them at once), and the second argument should be a dictionary where the keys are the are method names, and the values expected by each test case.
+test_numbers = [3, 9, 3, 4, 6, 5, 6, 2]
 
-and
-**data_tests_test_cases.py**
-```sh
-test_cases = [
+add_cases = [
     (3, None),
     (9, None),
     (3, None),
@@ -78,8 +68,41 @@ test_cases = [
     (4.5, 'Input value error: value out of range or different integer type.'),
     (-1, 'Input value error: value out of range or different integer type.')
     ]
+
+build_test_cases = [
+    (test_numbers, {'less(4)': 3, 'between(3,6)': 6, 'greater(4)': 4}),
+    (test_numbers, {'less(3)': 1, 'between(6,3)': 6, 'greater(6)': 1}),
+    (test_numbers, {'greater(-1)': 'Input value error: value out of range or different integer type.'}),
+    (test_numbers, {'greater(1001)': 'Input value error: value out of range or different integer type.'})
+    ]
 ```
-The first parámeter should be the numbers you want to add to the test cases, and the second argument should be the expected value for each test case.
+
+Above: the first list array (test_numbers) should contains the numbers you want to add to the test cases (all of them at once), then you could edit the add_cases (input value, expected output) list array or the build_test_cases list array second dictionary argument where the keys are the are method names, and the values expected by each test case.
+
+and
+**data_tests_test_cases.py**
+```sh
+test_numbers = [3, 9, 3, 4, 6, 5, 6, 2]
+
+less_cases = [
+    (test_numbers, {'less(3)': 1, 'less(4)': 3, 'less(5)': 4}),
+    (test_numbers, {'less(-1)': 'Input value error: value out of range or different integer type.'}),
+    (test_numbers, {'less(1001)': 'Input value error: value out of range or different integer type.'})
+    ]
+
+between_cases = [
+    (test_numbers, {'between(3,6)': 6, 'between(4,6)': 4, 'between(6,4)': 4}),
+    (test_numbers, {'between(-1, 10)': 'Input value error: value out of range or different integer type.'}),
+    (test_numbers, {'between(1001, 4)': 'Input value error: value out of range or different integer type.'})
+    ]
+
+greater_cases = [
+    (test_numbers, {'greater(3)': 5, 'greater(4)': 4, 'greater(5)': 3}),
+    (test_numbers, {'greater(-1)': 'Input value error: value out of range or different integer type.'}),
+    (test_numbers, {'greater(1001)': 'Input value error: value out of range or different integer type.'})
+    ]
+```
+Above: in the same way as the first file, you are allowed to edit test_numbers array list with all input numbers, then array list for less_cases, between_cases and greater_cases.
 
 ### Install Pytest before any testing run. 
 ```sh
@@ -91,10 +114,3 @@ to run test execute the lines below
 cd tests
 pytest
 ```
-
-## NOTE:
-I did every feedback change provided but I need to say that I interpreted the following feedback change requirement:
-
-*"Los test están muy acoplados, sería bueno separarlos por clases..."*
-
-in the way I need to decouple the data test inputs for rehuse among the clases tested and make a test for each class involved, but I feel that the principle of private methods tested through public ones it's okey in this scenario and my previous implementation reflected that. That beign said, thanks again for the feedback.
